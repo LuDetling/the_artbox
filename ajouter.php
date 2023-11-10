@@ -1,4 +1,12 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php';
+
+$erreur = null;
+
+if ($_GET["erreur"] === "true") {
+    $erreur = "Vous avez une erreure dans votre formulaire";
+}
+
+?>
 
 <form action="traitement.php" method="POST">
     <div class="champ-formulaire">
@@ -17,8 +25,12 @@
         <label for="description">Description</label>
         <textarea name="description" id="description"></textarea>
     </div>
-
+    <?php if ($erreur) { ?>
+        <p><?= $erreur ?></p>
+    <?php } ?>
     <input type="submit" value="Valider" name="submit">
 </form>
 
-<?php require 'footer.php'; ?>
+<?php
+require 'footer.php';
+?>
