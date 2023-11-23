@@ -2,7 +2,7 @@
 
 $erreur = null;
 
-if ($_GET["erreur"] === "true") {
+if (isset($_GET["erreur"])) {
     $erreur = "Vous avez une erreure dans votre formulaire";
 }
 

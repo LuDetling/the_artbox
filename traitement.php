@@ -10,13 +10,13 @@ if (
     || !filter_var($_POST['image'], FILTER_VALIDATE_URL)
 ) {
     header('Location: ajouter.php?erreur=true');
-} else {
-    $title = htmlspecialchars($_POST["titre"]);
-    $artist = htmlspecialchars($_POST["artiste"]);
-    $img = htmlspecialchars($_POST["image"]);
-    $description = htmlspecialchars($_POST["description"]);
-    header('Location: index.php');
+    exit();
 }
+
+$title = htmlspecialchars($_POST["titre"]);
+$artist = htmlspecialchars($_POST["artiste"]);
+$img = htmlspecialchars($_POST["image"]);
+$description = htmlspecialchars($_POST["description"]);
 
 $sql = "INSERT INTO oeuvres (title, artist, img, description) VALUES (?,?,?,?)";
 $oeuvresStatement = $db->prepare($sql);
