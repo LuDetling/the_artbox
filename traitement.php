@@ -1,4 +1,4 @@
-<?
+<?php
 require 'bdd.php';
 
 if (
@@ -12,6 +12,7 @@ if (
     header('Location: ajouter.php?erreur=true');
     exit();
 }
+
 
 $title = htmlspecialchars($_POST["titre"]);
 $artist = htmlspecialchars($_POST["artiste"]);
